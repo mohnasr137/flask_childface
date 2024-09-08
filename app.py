@@ -36,8 +36,8 @@ def predict():
 
     img_file = request.files['image']
     img_path = os.path.join('uploads', img_file.filename)
-    # os.makedirs(os.path.dirname(img_path), exist_ok=True)
-    # img_file.save(img_path)
+    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    img_file.save(img_path)
 
     img_array = preprocess_image(img_path)
     prediction = predict_image(img_array)
