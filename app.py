@@ -36,8 +36,8 @@ def predict():
 
     img_file = request.files['image']
     img_path = os.path.join('uploads', img_file.filename)
-    os.makedirs(os.path.dirname(img_path), exist_ok=True)
-    img_file.save(img_path)
+    # os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    # img_file.save(img_path)
 
     img_array = preprocess_image(img_path)
     prediction = predict_image(img_array)
@@ -46,4 +46,4 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)
