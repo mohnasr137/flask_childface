@@ -29,7 +29,7 @@ def predict_image(img_array):
     prediction = model.predict(img_array)
     return 0 if prediction[0][0] > 0.5 else 1
 
-@app.route('/childface', methods=['POST'])
+@app.route('/childFace', methods=['POST'])
 def predict():
     if 'image' not in request.files:
         return jsonify({"error": "No image provided"}), 400
