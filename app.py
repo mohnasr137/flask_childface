@@ -7,7 +7,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the model
-model_path = os.path.join('model', 'model.h5')
+model_path = os.path.join('model', 'my_model.h5')
 model = None
 
 try:
