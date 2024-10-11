@@ -21,19 +21,11 @@ def preprocess_image(img_path):
     img = cv2.imread(img_path)
     if img is None:
         raise ValueError(f"Image at path {img_path} could not be loaded.")
-    
     # Resize image to (224, 224) to match the model input
     img = cv2.resize(img, (224, 224))
-    
-    # Convert BGR to RGB if your model was trained on RGB (if necessary)
-    # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # Uncomment if needed based on training
-    
-    # No normalization is applied here, as per the DL model code
     img_array = np.array(img)
-    
     # Expand dimensions to match the input shape of the model (1, 224, 224, 3)
     img_array = np.expand_dims(img_array, axis=0)
-    
     return img_array
 
 def predict_image(img_array):
